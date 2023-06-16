@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.json())
 
 app.post('/api/distance', (req, res) => {
-    
+
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', '*')
   res.header('Access-Control-Allow-Headers', '*')
@@ -33,12 +33,10 @@ app.post('/api/distance', (req, res) => {
   
   const d = R * c; // in metres
 
-  console.log(d)
-
   res.send({d})
 
 })
 
 app.listen(3000, () => {
-  console.log('running...')
+  console.log('Running on http://localhost:3000/api/distance')
 })
