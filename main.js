@@ -1,10 +1,16 @@
 const express = require('express')
+const cors = require('cors')
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
-app.get('/api/distance', (req, res) => {
+app.post('/api/distance', (req, res) => {
+    
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', '*')
+  res.header('Access-Control-Allow-Headers', '*')
 
   let reqBody = req.body
 
@@ -27,7 +33,8 @@ app.get('/api/distance', (req, res) => {
   
   const d = R * c; // in metres
 
-  res.header('Access-Control-Allow-Origin', '*')
+  console.log(d)
+
   res.send({d})
 
 })
